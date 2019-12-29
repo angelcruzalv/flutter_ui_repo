@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui/bottom_bar.dart';
 
 void main() => runApp(MyApp());
 
@@ -131,7 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
          child: Icon(Icons.plus_one),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: BottomBar(),
+        //bottomNavigationBar: BottomBar(),
         
      ),
     );
