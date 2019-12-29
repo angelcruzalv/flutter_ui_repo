@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.orange,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -40,10 +40,20 @@ class _MyHomePageState extends State<MyHomePage> {
              child: Row(
                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                children: <Widget>[
-                 IconButton(
-                   icon: Icon(Icons.arrow_back_ios),
-                   color: Colors.white,
-                   onPressed: (){},
+                 Container(
+                   width: 125,
+                      child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text("Inicio",
+                        style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25.0 ),
+                        ),
+                      ],
+                    ),                
                  ),
                   Container(
                     width: 125.0,
@@ -51,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         IconButton(
-                          icon: Icon(Icons.filter_list),
+                          icon: Icon(Icons.search),
                           color: Colors.white,
                           onPressed: (){},
                         )
@@ -60,13 +70,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   )
                ],
              ),
-           ),
+           ), 
            SizedBox(height: 5.0,),
-           Padding(
-             padding: EdgeInsets.only(left: 40.0),
+        /*   Padding(
+             padding: EdgeInsets.only(top: 15.0 ,left: 40.0),
              child: Row(
                children: <Widget>[
-                 Text("Alberto",
+                 Text("Inicio",
                  style: TextStyle(
                    fontFamily: 'Montserrat',
                    color: Colors.white,
@@ -74,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
                    fontSize: 25.0 ),
                 ),
                  SizedBox(width: 10.0),
-                 Text("Ángel",
+                 Text("",
                  style: TextStyle(
                    fontFamily: 'Montserrat',
                    color: Colors.white,
@@ -83,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                ],
              ),
-           ),
+           ),*/
            SizedBox(height: 10.0,),
            Container(
              height: MediaQuery.of(context).size.height-50,
@@ -99,24 +109,36 @@ class _MyHomePageState extends State<MyHomePage> {
                  Padding(
                    padding: EdgeInsets.only(top: 5.0),
                    child: Container(
-                     height: MediaQuery.of(context).size.height - 180.0,
+                     height: MediaQuery.of(context).size.height - 145.0,
                      width: MediaQuery.of(context).size.width,
-                     child: ListView(
-                       children: <Widget>[
-                         _buildFoodItem('assets/woman.jpg', 'Angelina Wise', '123'),
-                         _buildFoodItem('assets/woman.jpg', 'Angelina Wise', '123'),
-                         _buildFoodItem('assets/woman.jpg', 'Angelina Wise', '123'),
-                         _buildFoodItem('assets/woman.jpg', 'Angelina Wise', '123'),
-                         _buildFoodItem('assets/woman.jpg', 'Angelina Wise', '123'),
-                         _buildFoodItem('assets/woman.jpg', 'Angelina Wise', '123'),
-                         _buildFoodItem('assets/woman.jpg', 'Angelina Wise', '123'),
-                         _buildFoodItem('assets/woman.jpg', 'Angelina Wise', '123'),
-                         _buildFoodItem('assets/woman.jpg', 'Angelina Wise', '123'),
-                         _buildFoodItem('assets/woman.jpg', 'Angelina Wise', '123'),
-                         _buildFoodItem('assets/woman.jpg', 'Angelina Wise', '123'),
+                     child: ScrollConfiguration(
+                       //Cambia el color del final del scroll del listview
+                       behavior: ScrollBehavior(),
+                       child: GlowingOverscrollIndicator(
+                         axisDirection: AxisDirection.down,
+                         color: Colors.orange,
+
+                          child: ListView(
+                          children: <Widget>[
+                            _buildFoodItem('assets/woman.jpg', 'Lorem Ipsum', '123'),
+                            _buildFoodItem('assets/woman.jpg', 'Lorem Ipsum', '123'),
+                            _buildFoodItem('assets/woman.jpg', 'Lorem Ipsum', '123'),
+                            _buildFoodItem('assets/woman.jpg', 'Lorem Ipsum', '123'),
+                            _buildFoodItem('assets/woman.jpg', 'Lorem Ipsum', '123'),
+                            _buildFoodItem('assets/woman.jpg', 'Lorem Ipsum', '123'),
+                            _buildFoodItem('assets/woman.jpg', 'Lorem Ipsum', '123'),
+                            _buildFoodItem('assets/woman.jpg', 'Lorem Ipsum', '123'),
+                            _buildFoodItem('assets/woman.jpg', 'Lorem Ipsum', '123'),
+                            _buildFoodItem('assets/woman.jpg', 'Lorem Ipsum', '123'),
+                            _buildFoodItem('assets/woman.jpg', 'Lorem Ipsum', '123'),
                          
                        ],
                      ),
+                   ), 
+                  )
+
+
+
                    ),
                  ),
                  

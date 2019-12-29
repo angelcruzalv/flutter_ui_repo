@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/screens/home_screen.dart';
+import 'package:flutter_ui/screens/money_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -33,6 +34,7 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
   final List<Widget> _widgetOptions = <Widget>[
     MyHomePage(),
+    MoneyScreen(),
   ];
 
   Widget currentScreen = MyHomePage();
@@ -47,10 +49,18 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
           child: currentScreen,
           bucket: bucket,
         ),
+        //Boton flotante Acción
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+
+          onPressed: () {
+            setState(() {
+              currentScreen = MoneyScreen();
+              _selectedIndex = 4;
+            });
+
+          },
           backgroundColor: Color(0xFFF17532),
-          child: Icon(Icons.plus_one),
+          child: Icon(Icons.attach_money),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: BottomAppBar(
@@ -104,7 +114,7 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
                           child: Row(
                             children: <Widget>[
                               Icon(
-                                Icons.person_outline,
+                                Icons.arrow_downward,
                                 color: _selectedIndex == 1
                                     ? Color(0xFFEF7532)
                                     : Color(0xFF676E79),
@@ -125,7 +135,7 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
                           child: Row(
                             children: <Widget>[
                               Icon(
-                                Icons.pets,
+                                Icons.arrow_upward,
                                 color: _selectedIndex == 2
                                     ? Color(0xFFEF7532)
                                     : Color(0xFF676E79),
