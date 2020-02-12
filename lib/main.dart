@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/screens/home_screen.dart';
+import 'package:flutter_ui/screens/money_in.dart';
+import 'package:flutter_ui/screens/money_out.dart';
 import 'package:flutter_ui/screens/money_screen.dart';
 
 void main() => runApp(MyApp());
@@ -17,6 +19,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color.fromRGBO(237, 64, 60, 1.0),
       ),
+      routes: <String, WidgetBuilder>{
+        MoneyScreen.routeName : (BuildContext context) => MoneyScreen(),
+
+      },
+
     );
   }
 }
@@ -34,7 +41,9 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
   final List<Widget> _widgetOptions = <Widget>[
     MyHomePage(),
+    MoneyIn(),
     MoneyScreen(),
+    
   ];
 
   Widget currentScreen = MyHomePage();
@@ -75,7 +84,13 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(25.0),
                       topRight: Radius.circular(25.0)),
-                  color: Color(0xFF21BFBD),
+                 // color: Color(0xFF21BFBD),
+                 gradient: LinearGradient(
+                   colors: <Color>[
+                     Color(0xff007991),
+                     Color(0xFF78ffd6),
+                   ]
+                 )
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -107,7 +122,7 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
                           minWidth: 40,
                           onPressed: () {
                             setState(() {
-                              currentScreen = MyHomePage();
+                              currentScreen = MoneyIn();
                               _selectedIndex = 1;
                             });
                           },
@@ -128,7 +143,7 @@ class _MyStatefulWidget extends State<MyStatefulWidget> {
                           minWidth: 40,
                           onPressed: () {
                             setState(() {
-                              currentScreen = MyHomePage();
+                              currentScreen = MoneyOut();
                               _selectedIndex = 2;
                             });
                           },

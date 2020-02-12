@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -31,9 +32,16 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return MaterialApp(
     home: Scaffold(
-      
-      backgroundColor: Color(0xFF21BFBD),    
-       body: ListView(
+      body: Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: <Color>[
+            Color(0xff007991),
+            Color(0xFF78ffd6),
+           ],
+       )
+      ),    //0xFF21BFBD
+       child: ListView(
          children: <Widget>[
            Padding(
              padding: EdgeInsets.only(top: 15.0, left: 10.0),
@@ -71,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
                ],
              ),
            ), 
-           SizedBox(height: 5.0,),
+          // SizedBox(height: 5.0,),
         /*   Padding(
              padding: EdgeInsets.only(top: 15.0 ,left: 40.0),
              child: Row(
@@ -94,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
                ],
              ),
            ),*/
-           SizedBox(height: 10.0,),
+           SizedBox(height: 15.0,),
            Container(
              height: MediaQuery.of(context).size.height-50,
              width: MediaQuery.of(context).size.width,
@@ -104,10 +112,10 @@ class _MyHomePageState extends State<MyHomePage> {
              ),
              child: ListView(
                primary: false,
-               padding: EdgeInsets.only(left: 25.0, right: 20.0),
+               //padding: EdgeInsets.only(left: 5.0, right: 5.0),
                children: <Widget>[
                  Padding(
-                   padding: EdgeInsets.only(top: 5.0),
+                   padding: EdgeInsets.only(top: 0.0),
                    child: Container(
                      height: MediaQuery.of(context).size.height - 145.0,
                      width: MediaQuery.of(context).size.width,
@@ -116,10 +124,9 @@ class _MyHomePageState extends State<MyHomePage> {
                        behavior: ScrollBehavior(),
                        child: GlowingOverscrollIndicator(
                          axisDirection: AxisDirection.down,
-                         color: Colors.orange,
-
+                         color: Color(0xFF78ffd6), 
                           child: ListView(
-                          children: <Widget>[
+                           children: <Widget>[
                             _buildFoodItem('assets/woman.jpg', 'Lorem Ipsum', '123'),
                             _buildFoodItem('assets/woman.jpg', 'Lorem Ipsum', '123'),
                             _buildFoodItem('assets/woman.jpg', 'Lorem Ipsum', '123'),
@@ -146,7 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
              ),
            ),
          ],
-       ),
+       ),  )
      ),
     );
   }
@@ -182,9 +189,8 @@ Widget _buildFoodItem(String imgPath, String foodName, String price) {
                 child: Row(
 
                   children: [
-
                     
-                    Hero(
+                   /* Hero(
 
                       tag: imgPath,
 
@@ -200,7 +206,7 @@ Widget _buildFoodItem(String imgPath, String foodName, String price) {
 
                       )
 
-                    ),
+                    ), */
 
                     SizedBox(width: 10.0),
 
@@ -222,8 +228,8 @@ Widget _buildFoodItem(String imgPath, String foodName, String price) {
 
                             fontWeight: FontWeight.bold
 
-                          )
-
+                          ),
+                          
                         ),
 
                         Text(
